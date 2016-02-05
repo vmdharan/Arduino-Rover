@@ -17,6 +17,9 @@ int zCal = 512;
 
 // Initial setup
 void setup() {
+  // Initialise the serial communication.
+  Serial.begin(9600);
+  
   // Accelerometer initialisation.
   pinMode(GND_pin, OUTPUT);
   pinMode(VCC_pin, OUTPUT);
