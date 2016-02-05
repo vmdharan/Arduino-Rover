@@ -1,5 +1,6 @@
 #include <LiquidCrystal.h>
 
+// Initialise the LCD display - set up pins
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 
 // Line sensor 1
@@ -24,8 +25,10 @@ void setup() {
   pinMode(s2g, OUTPUT);
   pinMode(s2v, OUTPUT);
 
-  // Initialise the LCD display.
+  // Initialise number of characters and lines for LCD.
   lcd.begin(16, 2);
+
+  // Print on first line.
   lcd.print("Line Sensors");
 }
 
@@ -42,6 +45,8 @@ void loop() {
   int L_val = digitalRead(s2);
 
   // Display the sensor output on the LCD display.
+  // Output '1' when sensor is over a dark surface.
+  // Output '0' when sensor is over a light surface.
   lcd.setCursor(0, 2);
   lcd.print("  R:");
   lcd.print(R_val);
